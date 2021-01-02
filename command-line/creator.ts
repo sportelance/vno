@@ -4,7 +4,6 @@ import { bgGreen, bgWhite } from "https://deno.land/std@0.74.0/fmt/colors.ts";
 import { prompt } from "./utils.ts";
 
 import { ensureDirSync,ensureFile } from "https://deno.land/std/fs/mod.ts";
-import utils from "../src/lib/utils.ts";
 import _ from "https://cdn.skypack.dev/lodash";
 import * as Colors from "https://deno.land/std/fmt/colors.ts"
 const userOptions = {
@@ -56,6 +55,7 @@ in CLI demo page */
         userOptions.child = newAddedComps[0]
     }
     if (port) userOptions.port = port;
+    console.log(Colors.green('Creating your vno Project'));
   } else {
     //user inputs 'no' and CLI resets to beginning
     console.log("\nResetting User Options");
@@ -77,10 +77,10 @@ if (decision.toLowerCase() === "yes") {
 const total = 100;
 const progress = new ProgressBar({
   total,
-  clear: true,
   complete: bgGreen(" "),
   incomplete: bgWhite(" "),
-  display: ":completed/:total vno load :time [:bar] :percent",
+  display: ":completed/:total hello :time [:bar] :percent",
+  clear: true,
 });
 let completed = 0;
 function run() {
@@ -289,6 +289,5 @@ ensureFile("deps.ts")
 ensureFile("server.ts")
   .then(() => {
     Deno.writeTextFileSync("server.ts", server);
-  }).then(() => {
   });
 
