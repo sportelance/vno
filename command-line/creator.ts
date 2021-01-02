@@ -265,7 +265,7 @@ if(newAddedComps[1]){
 for (let i = 1; i < newAddedComps.length; i += 1) {
   ensureFile(`components/${newAddedComps[i]}.vue`)
     .then(() => {
-      Deno.writeTextFileSync(
+      Deno.writeText(
         `components/${newAddedComps[i]}.vue`,
         `//created component ${newAddedComps[i]}` + "\n" + genericComp,
       );
